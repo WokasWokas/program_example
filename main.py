@@ -21,13 +21,12 @@ def main() -> None:
     settings_parser = init_settings_parser()
     settings = settings_parser.get_settings()
 
-    logger.set_filename(settings.get('filename'))
-    logger.set_log_path(settings.get('log_path'))
-    logger.set_loglevel(settings.get('loglevel'))
-    logger.set_timeformat(settings.get('timeformat'))
+    logger.set_filename(settings['filename'])
+    logger.set_log_path(settings['log_path'])
+    logger.set_loglevel(settings['loglevel'])
+    logger.set_timeformat(settings['timeformat'])
 
-    # Your code here!
-    
+    # your code here
 
     close_logger()
 

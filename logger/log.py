@@ -1,14 +1,9 @@
 from time import time, gmtime, strftime
-from os import path
+from os import path, curdir
 import logger.errors as error
 
-def validate_path(_path: str) -> bool:
-    if not path.isdir(path):
-        return False
-    return True
-
 def validate_loglevel(loglevel: int) -> bool:
-    _available_levels = [0, 1]
+    _available_levels = ['0', '1']
     if not loglevel in _available_levels:
         return False
     return True    
@@ -41,8 +36,6 @@ class Logger:
         self.update_log('info', 'Changed timeformat to ' + timeformat)
 
     def set_log_path(self, _path: str) -> None:
-        if not validate_path(_path):
-            raise error.UnknowLogPath(f'Unknow log path {_path}')
         self.log_path = _path
         self.update_log('info', 'Changed log path to ' + _path)
 

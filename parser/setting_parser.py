@@ -25,5 +25,5 @@ class Parser:
             setting, value = line.split('=')
             if not setting in self.available_settings:
                 continue
-            data[setting] = value
+            data[setting] = value.replace('\n', '')
         return data 
