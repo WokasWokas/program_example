@@ -3,7 +3,6 @@ from logger.log import Logger
 
 def init_logger() -> Logger:
     logger = Logger()
-    logger.update_log('info', 'Init setting parser')
     return logger
 
 def close_logger() -> None:
@@ -11,7 +10,7 @@ def close_logger() -> None:
 
 def init_settings_parser() -> dict[str, str]:
     setparser = Parser()
-    logger.update_log('info', 'Get settings')
+    logger.update_log('info', 'Init settings parser')
     return setparser
 
 def main() -> None:
@@ -19,6 +18,8 @@ def main() -> None:
     logger = init_logger()
     
     settings_parser = init_settings_parser()
+    
+    logger.update_log('info', 'Get settings')
     settings = settings_parser.get_settings()
 
     logger.set_filename(settings['filename'])
