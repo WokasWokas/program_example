@@ -1,19 +1,35 @@
 from parser.setting_parser import Parser
 from logger.log import Logger
 
-def main() -> None:
+def init_logger() -> Logger:
     logger = Logger()
-    logger.update_log(
-        'info',
-        'Init setting parser'
-    )
-    setparser = Parser()
-    logger.update_log(
-        'info',
-        'Get settings'
-    )
-    settings = setparser.get_settings()
+    logger.update_log('info', 'Init setting parser')
+    return logger
+
+def close_logger() -> None:
     logger.save_log()
+
+def init_settings_parser() -> dict[str, str]:
+    setparser = Parser()
+    logger.update_log('info', 'Get settings')
+    return setparser
+
+def main() -> None:
+    global logger
+    logger = init_logger()
+    
+    settings_parser = init_settings_parser()
+    settings = settings_parser.get_settings()
+
+    logger.set_filename(settings.get('filename'))
+    logger.set_log_path(settings.get('log_path'))
+    logger.set_loglevel(settings.get('loglevel'))
+    logger.set_timeformat(settings.get('timeformat'))
+
+    # Your code here!
+    
+
+    close_logger()
 
 if __name__ == "__main__":
     try:

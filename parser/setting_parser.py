@@ -8,7 +8,7 @@ class Parser:
     def __init__(self) -> None:
         if not path.exists(__SETTING_FILE__):
             raise error.SettingFileNotFound(f'error: Setting file in {__SETTING_FILE__} not found!')
-        self.available_settings = ['log_path', 'filename', 'timeformat']
+        self.available_settings = ['log_path', 'filename', 'timeformat', 'loglevel']
     
     def get_settings(self) -> dict[str, str]:
         _parsed_data: list[str]

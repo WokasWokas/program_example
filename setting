@@ -4,7 +4,14 @@
 
 #example : setting=value
 
-timeformat=%H %M %S
+#default timeformat : %H-%M-%S
+timeformat=%H-%M-%S
+
+#default log_path : logs
 log_path=logs
+
+#default filename : {time}.log
 filename={time}.log
-levellog=1
+
+#default loglevel : 1
+loglevel=1
