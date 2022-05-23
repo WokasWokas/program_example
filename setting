@@ -1,0 +1,10 @@
+#it's commented line
+
+#available_settings : ['log_path', 'filename', 'timeformat']
+
+#example : setting=value
+
+timeformat=%H %M %S
+log_path=logs
+filename={time}.log
+levellog=1
